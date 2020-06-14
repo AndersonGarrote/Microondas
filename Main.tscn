@@ -15,13 +15,25 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/Microondas/Prato:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Explodir"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CenterContainer:modulate")
@@ -30,14 +42,25 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.9, 1, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Fechar Porta"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CenterContainer/Porta:rect_scale")
 tracks/0/interp = 1
@@ -50,10 +73,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 1 ), Vector2( 1, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/Microondas/Prato:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -11.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 512, 300 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -64,10 +102,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -1073.0
-margin_top = -696.5
-margin_right = 1073.0
-margin_bottom = 696.5
+margin_left = -1070.73
+margin_top = -694.228
+margin_right = 1075.27
+margin_bottom = 698.772
+rect_pivot_offset = Vector2( 1073, 696 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -80,6 +119,16 @@ margin_bottom = 1093.0
 texture = ExtResource( 1 )
 stretch_mode = 6
 
+[node name="Prato" type="TextureRect" parent="CenterContainer/Microondas"]
+margin_left = 134.825
+margin_top = 157.3
+margin_right = 700.825
+margin_bottom = 723.3
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Porta" type="TextureRect" parent="CenterContainer"]
 margin_left = 512.0
 margin_top = 300.0
@@ -91,18 +140,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
-margin_left = 1073.0
-margin_top = 696.0
-margin_right = 1073.0
-margin_bottom = 696.0
+[node name="Comida" type="Label" parent="CenterContainer/Porta"]
+margin_left = 184.753
+margin_top = 210.698
+margin_right = 396.753
+margin_bottom = 282.698
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Comida:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-margin_left = 658.0
-margin_top = 237.5
-margin_right = 718.0
-margin_bottom = 297.5
-rect_min_size = Vector2( 60, 60 )
+[node name="Pontos" type="Label" parent="CenterContainer/Porta"]
+margin_left = 184.753
+margin_top = 514.698
+margin_right = 413.753
+margin_bottom = 586.698
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Pontos: 0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Simbolo Radioativo" type="TextureRect" parent="."]
+margin_left = 645.272
+margin_top = 229.772
+margin_right = 725.272
+margin_bottom = 309.772
+rect_min_size = Vector2( 80, 80 )
 texture = ExtResource( 5 )
 expand = true
 __meta__ = {
@@ -110,10 +179,10 @@ __meta__ = {
 }
 
 [node name="Mais" type="Button" parent="."]
-margin_left = 824.0
-margin_top = 455.5
-margin_right = 871.0
-margin_bottom = 527.5
+margin_left = 805.0
+margin_top = 457.5
+margin_right = 889.0
+margin_bottom = 529.5
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "+"
@@ -123,10 +192,10 @@ __meta__ = {
 }
 
 [node name="Menos" type="Button" parent="."]
-margin_left = 707.77
-margin_top = 454.787
-margin_right = 737.77
-margin_bottom = 526.787
+margin_left = 680.77
+margin_top = 457.787
+margin_right = 764.77
+margin_bottom = 529.787
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "-"
@@ -137,31 +206,21 @@ __meta__ = {
 
 [node name="Tempo" type="Label" parent="."]
 margin_left = 759.753
-margin_top = 114.198
+margin_top = 116.198
 margin_right = 885.753
-margin_bottom = 186.198
+margin_bottom = 188.198
 custom_fonts/font = ExtResource( 3 )
 text = "000"
 align = 1
 valign = 1
 
-[node name="Comida" type="Label" parent="."]
-margin_left = 135.753
-margin_top = 114.198
-margin_right = 347.753
-margin_bottom = 186.198
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Comida"
-align = 1
-valign = 1
-
 [node name="Radiação" type="Label" parent="."]
 margin_left = 759.753
-margin_top = 238.198
+margin_top = 241.198
 margin_right = 885.753
-margin_bottom = 310.198
+margin_bottom = 313.198
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "000"
 align = 1
 valign = 1
@@ -171,8 +230,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Abrir Porta" = SubResource( 1 )
-anims/Explodir = SubResource( 3 )
-"anims/Fechar Porta" = SubResource( 2 )
+anims/Explodir = SubResource( 2 )
+"anims/Fechar Porta" = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
